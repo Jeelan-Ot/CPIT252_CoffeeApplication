@@ -1,10 +1,14 @@
 
+import java.sql.Connection;
+
+
 public class Application {
 
     public static void main(String[] args) {
         User user = new User();
-        Database database = new Database();
-                 Coffee Coffee1 = new Coffee();
+        Connection con = DatabaseConnection.getConnection();
+//        Database database = new Database();
+//                 Coffee Coffee1 = new Coffee();
 
     }
 

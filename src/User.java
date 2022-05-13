@@ -1,8 +1,7 @@
 
 public class User extends Person {
 
-    Database connect;
-
+   
     public User() {
     }
     

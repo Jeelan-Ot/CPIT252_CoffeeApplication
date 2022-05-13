@@ -4,11 +4,9 @@ import java.util.Date;
 public class Order {
 
     private Date orderDate;
-    Database connect;
 
-    public Order(Date orderDate, Database connect) {
+    public Order(Date orderDate) {
         this.orderDate = orderDate;
-        this.connect = connect;
     }
 
     public static void buildOrder(Coffee coffee, User user) {

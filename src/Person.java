@@ -3,13 +3,13 @@ public class Person {
 
     private String name;
 
-    private String phoneNum;
+    private String email;
 
     private String password;
 
-    public Person(String name, String phoneNum, String password) {
+    public Person(String name, String email, String password) {
         this.name = name;
-        this.phoneNum = phoneNum;
+        this.email = email;
         this.password = password;
     }
 
@@ -25,12 +25,12 @@ public class Person {
         this.name = name;
     }
 
-    public String getPhoneNum() {
-        return phoneNum;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
