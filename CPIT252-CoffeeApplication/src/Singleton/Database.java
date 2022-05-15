@@ -1,16 +1,13 @@
 package Singleton;
 
-
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class Database {
 
-    static Connection connection = DatabaseConnection.getConnection();
+    private static Connection connection = DatabaseConnection.getConnection();
 
     public static boolean isUserExist(String email) {
         boolean isUser = false;
@@ -30,7 +27,7 @@ public class Database {
         boolean passwordValidity = false;
         try {
             Statement st = connection.createStatement();
-            String selectStatment = "SELECT Email FROM User WHERE Email = '" + email +"'";
+            String selectStatment = "SELECT Email, Password FROM User WHERE Email = '" + email + "' AND Password = '" + password + "'";
             ResultSet rs = st.executeQuery(selectStatment);
             if (rs.next()) {
                 passwordValidity = true;

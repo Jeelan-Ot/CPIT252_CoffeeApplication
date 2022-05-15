@@ -1,7 +1,5 @@
 package ChainOfResponsibility;
 
-
-
 public class AccessAuth {
 
     private final AccessHandler handler;
@@ -10,11 +8,8 @@ public class AccessAuth {
         this.handler = handler;
     }
 
-    public boolean logIn(String username, String password) {
-        System.out.println("LOGIN");
-        if (handler.handle(username, password)) {
-            System.out.println("Authorization was successful!");
-            
+    public boolean logIn(String email, String password) {
+        if (handler.handle(email, password)) {
             return true;
         }
         return false;

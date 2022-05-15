@@ -6,20 +6,19 @@ package ChainOfResponsibility;
 
 public abstract class AccessHandler {
 
-    private AccessHandler next;
+    protected AccessHandler nextAccessHandler;
     
-    public AccessHandler setNextHandler(AccessHandler next){
-       this.next = next;
-       return next;
+    public void setNextHandler(AccessHandler nextAccessHandler){
+       this.nextAccessHandler = nextAccessHandler;
     }
     
-    public abstract boolean handle(String username, String password);
+    public abstract boolean handle(String email, String password);
     
-    protected boolean handleNext(String username, String password){
-        if (next == null){
+    protected boolean handleNext(String email, String password){
+        if (nextAccessHandler == null){
             return true;
         } else {
-            return next.handle(username, password);
+            return nextAccessHandler.handle(email, password);
         }
     }
 }
