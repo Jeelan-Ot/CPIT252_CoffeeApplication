@@ -37,12 +37,9 @@ public class ShoppingCart {
     }
 
     public void cleanCart() {
-        ListIterator<Item> iterator = item.listIterator();
-        while (iterator.hasNext()) {
-            Item item2 = iterator.next();
-            this.item.remove(item2);
+        this.item = new ArrayList<>();
         }
-    }
+    
 
     public double getTotalAmount() {
         ListIterator<Item> iterator2 = item.listIterator();

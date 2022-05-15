@@ -82,8 +82,8 @@ public class viewCart extends javax.swing.JFrame {
 
     private void payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionPerformed
         // TODO add your handling code here:
-        new Payment().setVisible(true);
         Order.getOrder().getCart().cleanCart();
+        new Payment().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_payActionPerformed
 
