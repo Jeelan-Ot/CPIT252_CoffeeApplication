@@ -7,7 +7,7 @@ public class Cappuccino extends Coffee{
     
     public Cappuccino() {
         this.description = "Cappuccino";
-        this.icon = new ImageIcon("images\\cap.png");
+        this.icon = new ImageIcon("\\images\\cap.png");
     }
     
     @Override

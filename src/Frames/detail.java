@@ -2,6 +2,7 @@ package Frames;
 
 import CartOrder.*;
 import Decorate.*;
+import javax.swing.JLabel;
 
 public class detail extends javax.swing.JFrame {
 
@@ -11,10 +12,14 @@ public class detail extends javax.swing.JFrame {
         initComponents();
         this.coffee = coffee;
         this.CoffeePic.setIcon(coffee.getIcon());
+        this.CoffeePic.setHorizontalAlignment(JLabel.CENTER);
+        this.CoffeePic.setVerticalAlignment(JLabel.CENTER);
         this.coffeName.setText(coffee.getDescription());
         this.coffeePrice.setText(coffee.cost() + "");
-        if (CoffeePic.getIcon() != null)                   // to see if the label picture has Icon
+        if (CoffeePic.getIcon() != null) {                  // to see if the label picture has Icon
             System.out.println("hereicon");
+            System.out.println(CoffeePic.getIcon());
+        }
     }
 
     public detail() {

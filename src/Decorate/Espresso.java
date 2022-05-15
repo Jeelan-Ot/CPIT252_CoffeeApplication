@@ -8,7 +8,7 @@ public class Espresso extends Coffee{
   
     
     public Espresso() {
-        this.icon = new ImageIcon("images\\esp.png");
+        this.icon = new ImageIcon("\\images\\esp.png");
         this.description = "Espresso";
     }
 
