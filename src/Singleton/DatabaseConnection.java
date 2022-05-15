@@ -1,10 +1,13 @@
+package Singleton;
+
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
 public class DatabaseConnection {
+
     private static Connection con = null;
 
     static {
@@ -14,7 +17,6 @@ public class DatabaseConnection {
 
         try {
             con = DriverManager.getConnection(DBurl);
-            System.out.println("Connected to DB!");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

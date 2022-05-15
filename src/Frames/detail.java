@@ -54,7 +54,6 @@ public class detail extends javax.swing.JFrame {
         setBackground(new java.awt.Color(32, 21, 32));
         setMaximumSize(new java.awt.Dimension(400, 700));
         setMinimumSize(new java.awt.Dimension(400, 700));
-        setPreferredSize(new java.awt.Dimension(400, 700));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
