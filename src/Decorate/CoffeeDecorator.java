@@ -1,14 +1,9 @@
-
-
 package Decorate;
 
-public class CoffeeDecorator extends Coffee{
-    
-    private Coffee coffee;
-    
-    @Override
-    public int cost() {
-        return coffee.cost(); 
-    }
-    
+public abstract class CoffeeDecorator extends Coffee {
+
+    Coffee coffee;
+
+    public abstract int cost();
+
 }

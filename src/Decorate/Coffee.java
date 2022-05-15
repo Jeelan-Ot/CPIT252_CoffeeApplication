@@ -1,7 +1,9 @@
 package Decorate;
+import CartOrder.Item;
+import javax.swing.ImageIcon;
 
-public abstract class Coffee {
-
+public abstract class Coffee implements Item{
+    ImageIcon icon ;
     protected String description;
 
     public String getDescription() {
@@ -9,4 +11,8 @@ public abstract class Coffee {
     }
 
     public abstract int cost();
+    
+    public ImageIcon getIcon(){
+        return icon;
+    }
 }

@@ -1,9 +1,12 @@
 
 package Decorate;
 
-public class Latte extends Coffee{
+import javax.swing.ImageIcon;
 
+public class Latte extends Coffee{
+    
     public Latte() {
+        this.icon = new ImageIcon("images\\latte.png");
         this.description = "Latte";
     }
 

@@ -1,10 +1,13 @@
 
 package Decorate;
 
-public class Cappuccino extends Coffee{
+import javax.swing.ImageIcon;
 
+public class Cappuccino extends Coffee{
+    
     public Cappuccino() {
         this.description = "Cappuccino";
+        this.icon = new ImageIcon("images\\cap.png");
     }
     
     @Override

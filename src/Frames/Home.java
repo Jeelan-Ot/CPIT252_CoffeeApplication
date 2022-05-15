@@ -1,10 +1,10 @@
-
 package Frames;
+
+import Decorate.*;
 
 public class Home extends javax.swing.JFrame {
 
     public Home() {
-        this.setLocationRelativeTo(null);
         initComponents();
     }
 
@@ -39,6 +39,7 @@ public class Home extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         matchaBtn = new javax.swing.JButton();
+        cartBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Home"); // NOI18N
@@ -65,7 +66,7 @@ public class Home extends javax.swing.JFrame {
         blackPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/americano1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black1.png"))); // NOI18N
         blackPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 70, 50));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -74,8 +75,15 @@ public class Home extends javax.swing.JFrame {
         jLabel2.setText("Black");
         blackPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 50, 20));
 
+        blackBtn.setBackground(new java.awt.Color(238, 227, 199));
         blackBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         blackBtn.setText("+");
+        blackBtn.setBorderPainted(false);
+        blackBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                blackBtnMouseClicked(evt);
+            }
+        });
         blackPanel.add(blackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 50, 30));
 
         jPanel1.add(blackPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 110, 130));
@@ -93,8 +101,20 @@ public class Home extends javax.swing.JFrame {
         jLabel4.setText("cappuccino");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 90, 30));
 
+        capBtn.setBackground(new java.awt.Color(238, 227, 199));
         capBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         capBtn.setText("+");
+        capBtn.setBorderPainted(false);
+        capBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                blackBtnMouseClicked(evt);
+            }
+        });
+        capBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                capBtnActionPerformed(evt);
+            }
+        });
         jPanel3.add(capBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 50, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 110, 130));
@@ -112,8 +132,20 @@ public class Home extends javax.swing.JFrame {
         jLabel8.setText("Latte");
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 50, 40));
 
+        latBtn.setBackground(new java.awt.Color(238, 227, 199));
         latBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         latBtn.setText("+");
+        latBtn.setBorderPainted(false);
+        latBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                blackBtnMouseClicked(evt);
+            }
+        });
+        latBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                latBtnActionPerformed(evt);
+            }
+        });
         jPanel5.add(latBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 50, 30));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 110, 130));
@@ -121,8 +153,20 @@ public class Home extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(53, 43, 53));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        espBtn.setBackground(new java.awt.Color(238, 227, 199));
         espBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         espBtn.setText("+");
+        espBtn.setBorderPainted(false);
+        espBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                blackBtnMouseClicked(evt);
+            }
+        });
+        espBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                espBtnActionPerformed(evt);
+            }
+        });
         jPanel4.add(espBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 50, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -150,8 +194,20 @@ public class Home extends javax.swing.JFrame {
         jLabel12.setText("Mocha");
         jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 90, 40));
 
+        mocBtn.setBackground(new java.awt.Color(238, 227, 199));
         mocBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         mocBtn.setText("+");
+        mocBtn.setBorderPainted(false);
+        mocBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                blackBtnMouseClicked(evt);
+            }
+        });
+        mocBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mocBtnActionPerformed(evt);
+            }
+        });
         jPanel6.add(mocBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 50, 30));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 110, 130));
@@ -169,11 +225,35 @@ public class Home extends javax.swing.JFrame {
         jLabel10.setText("Matcha");
         jPanel7.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 90, 40));
 
+        matchaBtn.setBackground(new java.awt.Color(238, 227, 199));
         matchaBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         matchaBtn.setText("+");
+        matchaBtn.setBorderPainted(false);
+        matchaBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                blackBtnMouseClicked(evt);
+            }
+        });
+        matchaBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matchaBtnActionPerformed(evt);
+            }
+        });
         jPanel7.add(matchaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 50, 30));
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 110, 130));
+
+        cartBtn.setBackground(new java.awt.Color(238, 227, 199));
+        cartBtn.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        cartBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cart.png"))); // NOI18N
+        cartBtn.setText("Cart");
+        cartBtn.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        cartBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cartBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cartBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 650, 210, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,6 +269,56 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartBtnActionPerformed
+        // TODO add your handling code here:
+        new viewCart().setVisible(true);
+        this.dispose();
+        
+        
+    }//GEN-LAST:event_cartBtnActionPerformed
+
+    private void blackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blackBtnMouseClicked
+        // TODO add your handling code here:
+        detail d = new detail(new Black());
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_blackBtnMouseClicked
+
+    private void capBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capBtnActionPerformed
+        // TODO add your handling code here:
+        detail d = new detail(new Cappuccino());
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_capBtnActionPerformed
+
+    private void espBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_espBtnActionPerformed
+        // TODO add your handling code here:
+        detail d = new detail(new Espresso());
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_espBtnActionPerformed
+
+    private void latBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_latBtnActionPerformed
+        // TODO add your handling code here:
+        detail d = new detail(new Latte());
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_latBtnActionPerformed
+
+    private void matchaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matchaBtnActionPerformed
+        // TODO add your handling code here:
+        detail d = new detail(new Matcha());
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_matchaBtnActionPerformed
+
+    private void mocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mocBtnActionPerformed
+        // TODO add your handling code here:
+         detail d = new detail(new Mocha());
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_mocBtnActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -201,6 +331,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton blackBtn;
     private javax.swing.JPanel blackPanel;
     private javax.swing.JButton capBtn;
+    private javax.swing.JButton cartBtn;
     private javax.swing.JButton espBtn;
     private javax.swing.JLabel helloLabel;
     private javax.swing.JLabel jLabel1;
