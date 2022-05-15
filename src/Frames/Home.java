@@ -13,7 +13,6 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        userLabel = new javax.swing.JLabel();
         helloLabel = new javax.swing.JLabel();
         blackPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -40,6 +39,7 @@ public class Home extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         matchaBtn = new javax.swing.JButton();
         cartBtn = new javax.swing.JButton();
+        helloLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Home"); // NOI18N
@@ -51,16 +51,11 @@ public class Home extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 700));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        userLabel.setForeground(new java.awt.Color(255, 255, 255));
-        userLabel.setText("User");
-        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
-
         helloLabel.setBackground(new java.awt.Color(238, 227, 199));
-        helloLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        helloLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         helloLabel.setForeground(new java.awt.Color(238, 227, 199));
-        helloLabel.setText("Hello, ");
-        jPanel1.add(helloLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        helloLabel.setText("Pick your Coffee");
+        jPanel1.add(helloLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         blackPanel.setBackground(new java.awt.Color(53, 43, 53));
         blackPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -255,6 +250,12 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel1.add(cartBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 650, 210, 40));
 
+        helloLabel1.setBackground(new java.awt.Color(238, 227, 199));
+        helloLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        helloLabel1.setForeground(new java.awt.Color(238, 227, 199));
+        helloLabel1.setText("Hello Sunshine! ");
+        jPanel1.add(helloLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -273,8 +274,6 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         new viewCart().setVisible(true);
         this.dispose();
-        
-        
     }//GEN-LAST:event_cartBtnActionPerformed
 
     private void blackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blackBtnMouseClicked
@@ -334,6 +333,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton cartBtn;
     private javax.swing.JButton espBtn;
     private javax.swing.JLabel helloLabel;
+    private javax.swing.JLabel helloLabel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -355,6 +355,5 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton latBtn;
     private javax.swing.JButton matchaBtn;
     private javax.swing.JButton mocBtn;
-    private javax.swing.JLabel userLabel;
     // End of variables declaration//GEN-END:variables
 }

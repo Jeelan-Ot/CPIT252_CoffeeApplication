@@ -3,7 +3,7 @@ import CartOrder.Item;
 import javax.swing.ImageIcon;
 
 public abstract class Coffee implements Item{
-    ImageIcon icon ;
+    public ImageIcon icon ;
     protected String description;
 
     public String getDescription() {
@@ -13,6 +13,6 @@ public abstract class Coffee implements Item{
     public abstract int cost();
     
     public ImageIcon getIcon(){
-        return icon;
+        return this.icon;
     }
 }

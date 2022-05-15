@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package Frames;
 
 import CartOrder.Order;
@@ -44,7 +41,6 @@ public class viewCart extends javax.swing.JFrame {
         invoiceArea.setForeground(new java.awt.Color(255, 255, 255));
         invoiceArea.setLineWrap(true);
         invoiceArea.setRows(5);
-        invoiceArea.setText("dsfsdfd");
         invoiceArea.setWrapStyleWord(true);
         invoiceArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(invoiceArea);
@@ -86,6 +82,9 @@ public class viewCart extends javax.swing.JFrame {
 
     private void payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionPerformed
         // TODO add your handling code here:
+        new Payment().setVisible(true);
+        Order.getOrder().getCart().cleanCart();
+        this.dispose();
     }//GEN-LAST:event_payActionPerformed
 
   

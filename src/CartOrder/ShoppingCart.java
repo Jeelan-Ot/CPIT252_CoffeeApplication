@@ -36,7 +36,7 @@ public class ShoppingCart {
         }
     }
 
-    public void cleanCart(Item i) {
+    public void cleanCart() {
         ListIterator<Item> iterator = item.listIterator();
         while (iterator.hasNext()) {
             Item item2 = iterator.next();

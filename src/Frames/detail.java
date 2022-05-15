@@ -15,11 +15,7 @@ public class detail extends javax.swing.JFrame {
         this.CoffeePic.setHorizontalAlignment(JLabel.CENTER);
         this.CoffeePic.setVerticalAlignment(JLabel.CENTER);
         this.coffeName.setText(coffee.getDescription());
-        this.coffeePrice.setText(coffee.cost() + "");
-        if (CoffeePic.getIcon() != null) {                  // to see if the label picture has Icon
-            System.out.println("hereicon");
-            System.out.println(CoffeePic.getIcon());
-        }
+        this.coffeePrice.setText(coffee.cost() + " sar");
     }
 
     public detail() {
@@ -52,7 +48,6 @@ public class detail extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(32, 21, 32));
-        setMaximumSize(new java.awt.Dimension(400, 700));
         setMinimumSize(new java.awt.Dimension(400, 700));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

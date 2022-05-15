@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class Black extends Coffee{
     
     public Black() {
-        this.icon = new ImageIcon("\\images\\black.png");
+        this.icon = new ImageIcon("src\\images\\black.png");
         this.description = "Black";
     }
 

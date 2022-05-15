@@ -151,6 +151,7 @@ public class Payment extends javax.swing.JFrame {
         Confirmation confWin = new Confirmation();
         confWin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         confWin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     public static void main(String args[]) {
