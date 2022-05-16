@@ -6,6 +6,7 @@ public class Home extends javax.swing.JFrame {
 
     public Home() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -313,7 +314,7 @@ public class Home extends javax.swing.JFrame {
 
     private void mocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mocBtnActionPerformed
         // TODO add your handling code here:
-         detail d = new detail(new Mocha());
+        detail d = new detail(new Mocha());
         d.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_mocBtnActionPerformed
