@@ -5,10 +5,10 @@ import javax.swing.JFrame;
 
 public class Payment extends javax.swing.JFrame {
 
+    private Confirmation confWin;
     public Payment() {
         initComponents();
         setLocationRelativeTo(null);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -19,7 +19,6 @@ public class Payment extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         confirmButton = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -31,7 +30,7 @@ public class Payment extends javax.swing.JFrame {
         yearField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         ccvField = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,9 +52,6 @@ public class Payment extends javax.swing.JFrame {
         });
         jPanel2.add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, -1, 40));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-payment-64.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
-
         jPanel3.setBackground(new java.awt.Color(53, 43, 53));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -68,11 +64,8 @@ public class Payment extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Card No.");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
-
-        CardNoField1.setText("jTextField1");
         jPanel3.add(CardNoField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 200, -1));
 
-        NameOnCardField.setText("jTextField1");
         NameOnCardField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameOnCardFieldActionPerformed(evt);
@@ -86,6 +79,11 @@ public class Payment extends javax.swing.JFrame {
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         monthField.setText("MM");
+        monthField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                monthFieldMouseClicked(evt);
+            }
+        });
         jPanel3.add(monthField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 30, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -94,6 +92,11 @@ public class Payment extends javax.swing.JFrame {
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 10, -1));
 
         yearField.setText("YYYY");
+        yearField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                yearFieldMouseClicked(evt);
+            }
+        });
         jPanel3.add(yearField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 40, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -102,6 +105,11 @@ public class Payment extends javax.swing.JFrame {
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         ccvField.setText("123..");
+        ccvField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ccvFieldMouseClicked(evt);
+            }
+        });
         ccvField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ccvFieldActionPerformed(evt);
@@ -111,8 +119,8 @@ public class Payment extends javax.swing.JFrame {
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 400, 270));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Icon-Small-40@2x.png"))); // NOI18N
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cash-100.png"))); // NOI18N
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -148,11 +156,23 @@ public class Payment extends javax.swing.JFrame {
     }//GEN-LAST:event_NameOnCardFieldActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        Confirmation confWin = new Confirmation();
+        confWin = new Confirmation();
         confWin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         confWin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private void monthFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monthFieldMouseClicked
+        monthField.setText(" ");
+    }//GEN-LAST:event_monthFieldMouseClicked
+
+    private void yearFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yearFieldMouseClicked
+        yearField.setText(" ");
+    }//GEN-LAST:event_yearFieldMouseClicked
+
+    private void ccvFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ccvFieldMouseClicked
+        ccvField.setText(" ");
+    }//GEN-LAST:event_ccvFieldMouseClicked
 
     public static void main(String args[]) {
 
@@ -160,8 +180,10 @@ public class Payment extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Payment().setVisible(true);
+
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -176,7 +198,6 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

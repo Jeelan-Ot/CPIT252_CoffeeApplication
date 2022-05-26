@@ -17,29 +17,9 @@ public class ShoppingCart {
         this.item.add(item);
     }
 
-    public void showCart() {
-        ListIterator<Item> iterator = item.listIterator();
-        while (iterator.hasNext()) {
-            Item item1 = iterator.next();
-            System.out.println(item1);
-        }
-    }
-
-    public void removeFromCart(Item i) {
-        ListIterator<Item> iterator1 = item.listIterator();
-        while (iterator1.hasNext()) {
-            Item item2 = iterator1.next();
-            if (item2.getDescription().equals(i.getDescription())) {
-                this.item.remove(i);
-                break;
-            }
-        }
-    }
-
     public void cleanCart() {
         this.item = new ArrayList<>();
-        }
-    
+    }
 
     public double getTotalAmount() {
         ListIterator<Item> iterator2 = item.listIterator();
@@ -52,16 +32,18 @@ public class ShoppingCart {
     }
 
     public String printInvoice() {
-        String invoice="";
+        String invoice = "";
         ListIterator<Item> iterator3 = item.listIterator();
         while (iterator3.hasNext()) {
             Item item4 = iterator3.next();
             invoice += (item4.getDescription() + "\t");
             invoice += (item4.cost() + "\t");
-            invoice+="\n\n";
+            invoice += "\n\n";
         }
-        invoice += ("\n\t\t\t" + "Total    : " + this.getTotalAmount());
+        invoice += ("\n\t\t\t\n" + "Total    : " + this.getTotalAmount());
         return invoice;
     }
-    
 }
+
+
+

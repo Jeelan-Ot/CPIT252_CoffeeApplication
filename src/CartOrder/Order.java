@@ -6,15 +6,19 @@ public class Order {
     private static Order order = new Order();
 
     private Order() {
-      
+
     }
 
     public static Order getOrder() {
-       return order;
+        return order;
     }
-    
-    public ShoppingCart getCart(){
+
+    public ShoppingCart getCart() {
         return cart;
     }
 
 }
+
+
+
+

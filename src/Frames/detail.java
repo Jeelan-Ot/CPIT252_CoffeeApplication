@@ -2,14 +2,19 @@ package Frames;
 
 import CartOrder.*;
 import Decorate.*;
+import Singleton.Database;
+import java.time.LocalDateTime;
 import javax.swing.JLabel;
 
 public class detail extends javax.swing.JFrame {
 
     Coffee coffee;
+    Database db = new Database();
+    static String date;
 
     public detail(Coffee coffee) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.coffee = coffee;
         this.CoffeePic.setIcon(coffee.getIcon());
         this.CoffeePic.setHorizontalAlignment(JLabel.CENTER);
@@ -44,6 +49,7 @@ public class detail extends javax.swing.JFrame {
         vanillaRadio = new javax.swing.JRadioButton();
         caramelRadio = new javax.swing.JRadioButton();
         redRadio = new javax.swing.JRadioButton();
+        back = new javax.swing.JLabel();
         addBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -181,6 +187,14 @@ public class detail extends javax.swing.JFrame {
 
         jPanel1.add(TabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 330, 260));
 
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/arrow-right (2).png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
         addBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         addBtn.setText("Add To Cart");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -196,23 +210,35 @@ public class detail extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        // TODO add your handling code here:
         calculateItems();
-        Home home = new Home();
+        
+        //insert order into database
+        LocalDateTime currentDate = LocalDateTime.now();
+        date = currentDate.getMonth() + "/" + currentDate.getDayOfMonth();
+        String[] order = coffee.getDescription().split(",");
+        db.insertOrder(Login.email, order, coffee.cost(), date);
+        
+        Home home = new Home(coffee);
         home.setVisible(true);
         this.dispose();
+
     }//GEN-LAST:event_addBtnActionPerformed
 
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+        new Home().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_backMouseClicked
+
     public void calculateItems() {
-        
-          if (medRadio.isSelected()) {
+
+        if (medRadio.isSelected()) {
             coffee = new MediumSize(coffee);
         }
-          
-           if (largeRadio.isSelected()) {
+
+        if (largeRadio.isSelected()) {
             coffee = new LargeSize(coffee);
         }
-           
+
         if (creamCheck.isSelected()) {
             coffee = new WhippedCream(coffee);
         }
@@ -236,6 +262,7 @@ public class detail extends javax.swing.JFrame {
         if (redRadio.isSelected()) {
             coffee = new Velvet(coffee);
         }
+        
         Order.getOrder().getCart().addToCart(coffee);
     }
 
@@ -253,6 +280,7 @@ public class detail extends javax.swing.JFrame {
     private javax.swing.JLabel CoffeePic;
     private javax.swing.JTabbedPane TabbedPane;
     private javax.swing.JButton addBtn;
+    private javax.swing.JLabel back;
     private javax.swing.JRadioButton caramelRadio;
     private javax.swing.JLabel coffeName;
     private javax.swing.JLabel coffeePrice;

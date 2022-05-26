@@ -1,15 +1,16 @@
 package Frames;
 
-import ChainOfResponsibility.AccessAuth;
-import ChainOfResponsibility.AccessHandler;
-import ChainOfResponsibility.PasswordValidity;
-import ChainOfResponsibility.UserExistence;
+import Facade.LoginFacade;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
+    private LoginFacade facade;
+    private Home home;
+    static String email, pass;
+    
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
@@ -36,27 +37,30 @@ public class Login extends javax.swing.JFrame {
         emailField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(32, 21, 32));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        loginButton.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        loginButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, 90, 40));
+        jPanel1.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 110, 30));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, 20));
 
         passwordField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -66,9 +70,8 @@ public class Login extends javax.swing.JFrame {
                 passwordFieldFocusLost(evt);
             }
         });
-        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 220, 40));
+        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 250, 35));
 
-        emailField.setText("Email");
         emailField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 emailFieldFocusGained(evt);
@@ -77,13 +80,18 @@ public class Login extends javax.swing.JFrame {
                 emailFieldFocusLost(evt);
             }
         });
-        jPanel1.add(emailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 220, 40));
+        emailField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailFieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(emailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 250, 35));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Email");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(51, 153, 255));
         jLabel4.setText("Create an account");
@@ -92,17 +100,31 @@ public class Login extends javax.swing.JFrame {
                 jLabel4MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Login to your account");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Welcome!");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,19 +132,21 @@ public class Login extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
 
-        if (emailField.getText().equals("") || passwordField.getText().equals("")) {
+        email = emailField.getText();
+        pass = passwordField.getText();
+        
+        if (email.equals("") || pass.equals("")) {
             JOptionPane.showMessageDialog(null, "Please fill all the fields", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        AccessHandler handler = new UserExistence();
-        handler.setNextHandler(new PasswordValidity());
-        AccessAuth service = new AccessAuth(handler);
-        if (service.logIn(emailField.getText(), passwordField.getText())) {
-            new Home().setVisible(true);
+        
+        facade = new LoginFacade(email, pass);
+        if (facade.login()) {
+            home = new Home();
+            home.setVisible(true);
             dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Email or Password is not correct", "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+        JOptionPane.showMessageDialog(null, "Email or Password is not correct", "Error", JOptionPane.ERROR_MESSAGE);
         }
-
     }//GEN-LAST:event_loginButtonActionPerformed
 
 
@@ -166,6 +190,10 @@ public class Login extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel4MouseClicked
 
+    private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailFieldActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -207,6 +235,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginButton;
     private javax.swing.JPasswordField passwordField;

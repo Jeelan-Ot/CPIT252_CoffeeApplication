@@ -1,6 +1,7 @@
 package Observer;
 
 public abstract class Observer {
+
     private String recipient;
 
     public String getRecipient() {

@@ -4,12 +4,18 @@ import Observer.Observer;
 
 public class EmailObserver extends Observer {
 
+    private SendEmail s = new SendEmail();
+
     public EmailObserver(String recipient) {
         super.setRecipient(recipient);
     }
 
     @Override
     public void update(String subject, String message) {
-        SendEmail.send(subject, message, getRecipient());
+        s.send(subject, message, getRecipient());
     }
 }
+
+
+
+

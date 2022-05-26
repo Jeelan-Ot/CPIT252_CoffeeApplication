@@ -1,17 +1,28 @@
-
-
 package Frames;
 
 import CartOrder.Order;
+import Decorate.Coffee;
 
 public class viewCart extends javax.swing.JFrame {
 
-    public viewCart() {
+    Coffee coffee;
+    Payment payPage;
+
+    public viewCart(Coffee coffee) {
         initComponents();
-        invoiceArea.setText("\n"+Order.getOrder().getCart().printInvoice());
+        this.coffee = coffee;
+        setLocationRelativeTo(null);
+        invoiceArea.setText("\n" + Order.getOrder().getCart().printInvoice());
+        jPanel1.requestFocus();
     }
 
-   
+    public viewCart() {
+        initComponents();
+        setLocationRelativeTo(null);
+        invoiceArea.setText("\n" + Order.getOrder().getCart().printInvoice());
+        jPanel1.requestFocus();
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -21,6 +32,7 @@ public class viewCart extends javax.swing.JFrame {
         invoiceArea = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         pay = new javax.swing.JButton();
+        back = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -62,6 +74,14 @@ public class viewCart extends javax.swing.JFrame {
         });
         jPanel1.add(pay, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 610, 240, 50));
 
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/arrow-right (2).png"))); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,13 +101,17 @@ public class viewCart extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionPerformed
-        // TODO add your handling code here:
         Order.getOrder().getCart().cleanCart();
-        new Payment().setVisible(true);
+        payPage = new Payment();
+        payPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_payActionPerformed
 
-  
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+        new Home().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_backMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -121,6 +145,7 @@ public class viewCart extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.JTextArea invoiceArea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

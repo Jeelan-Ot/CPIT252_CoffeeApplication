@@ -4,6 +4,14 @@ import Decorate.*;
 
 public class Home extends javax.swing.JFrame {
 
+    Coffee coffee;
+
+    public Home(Coffee coffee) {
+        this.coffee = coffee;
+        initComponents();
+        setLocationRelativeTo(null);
+    }
+
     public Home() {
         initComponents();
         setLocationRelativeTo(null);
@@ -272,48 +280,41 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartBtnActionPerformed
-        // TODO add your handling code here:
-        new viewCart().setVisible(true);
+        new viewCart(coffee).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cartBtnActionPerformed
 
     private void blackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blackBtnMouseClicked
-        // TODO add your handling code here:
         detail d = new detail(new Black());
         d.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_blackBtnMouseClicked
 
     private void capBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capBtnActionPerformed
-        // TODO add your handling code here:
         detail d = new detail(new Cappuccino());
         d.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_capBtnActionPerformed
 
     private void espBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_espBtnActionPerformed
-        // TODO add your handling code here:
         detail d = new detail(new Espresso());
         d.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_espBtnActionPerformed
 
     private void latBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_latBtnActionPerformed
-        // TODO add your handling code here:
         detail d = new detail(new Latte());
         d.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_latBtnActionPerformed
 
     private void matchaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matchaBtnActionPerformed
-        // TODO add your handling code here:
         detail d = new detail(new Matcha());
         d.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_matchaBtnActionPerformed
 
     private void mocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mocBtnActionPerformed
-        // TODO add your handling code here:
         detail d = new detail(new Mocha());
         d.setVisible(true);
         this.dispose();

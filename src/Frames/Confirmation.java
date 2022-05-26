@@ -1,10 +1,20 @@
 package Frames;
 
+import Observer.EmailObserver;
+import Observer.MessageSubject;
+import Observer.Observer;
+import Observer.Subject;
+import Singleton.Database;
+
 public class Confirmation extends javax.swing.JFrame {
 
+    private Observer emailObserver;
+    private Subject s;
+    private Database db = new Database();
+    
     public Confirmation() {
         initComponents();
-
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -61,21 +71,37 @@ public class Confirmation extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        // TODO add your handling code here:
+        emailObserver = new EmailObserver(Login.email);
+        s = new MessageSubject();        
+        s.notifyUpdate(emailObserver, "Order Invoice", message());
         new Home().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
+
+    public String message() {
+        String[][] order = db.getOrder(Login.email);
+
+        String message = "Hello\nYour Order Summary is:\n";
+        for (int i = 0; i < order.length; i++) {
+            for (int j = 0; j < 4; j++) {
+                message += " " + order[i][j];
+            }
+            message += "\n";
+        }
+        message += "\nThank you.";
+        return message;
+    }
 
     public static void main(String args[]) {
 

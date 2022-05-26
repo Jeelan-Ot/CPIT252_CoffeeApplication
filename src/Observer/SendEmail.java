@@ -7,13 +7,15 @@ import java.util.Properties;
 
 public class SendEmail {
 
-    public static void send(String subject, String body, String recipient){
+    public SendEmail() {
+    }
+
+    public void send(String subject, String body, String recipient) {
         final String username = "coffeans.cafe@gmail.com";
         final String password = "coffeans123";
 
-        
         Properties prop = new Properties();
-       
+
         prop.put("mail.smtp.host", "smtp.gmail.com");
         prop.put("mail.smtp.port", "587");
         prop.put("mail.smtp.auth", "true");
@@ -21,16 +23,16 @@ public class SendEmail {
 
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(username));
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse(recipient)
+                    InternetAddress.parse(recipient.trim())
             );
             message.setSubject(subject);
             message.setText(body);
@@ -39,3 +41,6 @@ public class SendEmail {
         }
     }
 }
+
+
+

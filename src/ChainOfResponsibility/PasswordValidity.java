@@ -4,7 +4,7 @@ import Singleton.Database;
 
 public class PasswordValidity extends AccessHandler {
 
-    private Database database;
+    private Database database = new Database();
 
     @Override
     public boolean handle(String email, String password) {
@@ -14,3 +14,6 @@ public class PasswordValidity extends AccessHandler {
         return handleNext(email, password);
     }
 }
+
+
+
